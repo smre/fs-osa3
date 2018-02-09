@@ -1,0 +1,19 @@
+{
+  "name": "puhelinluettelo_backend",
+  "version": "1.0.0",
+  "description": "FS osa 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://smre@github.com/smre/fs-osa3.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smre/fs-osa3/issues"
+  },
+  "homepage": "https://github.com/smre/fs-osa3#readme"
+}
