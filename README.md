@@ -1,2 +1,4 @@
-# fs-osa3
-FS osa 3
+# Fullstack (HY)
+
+Heroku app link:
+https://afternoon-eyrie-47254.herokuapp.com/
