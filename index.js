@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
-const Person = require('./models/person')
+const Person = require('./models/person');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -87,15 +87,20 @@ app.post('/api/persons', (request, response) => {
       .json({error: 'Name already exists in database'});
   }
 
-  const person = {
+  const person = new Person({
     name: body.name,
     number: body.number,
     id: Math.floor(Math.random() * Number.MAX_SAFE_INTEGER),
-  };
+  });
 
-  persons = persons.concat(person);
-
-  response.json(person);
+  person
+    .save()
+    .then(savedPerson => {
+      response.json(Person.format(savedPerson));
+    })
+    .catch(error => {
+      console.log(error);
+    });
 });
 
 app.get('/info', (req, res) => {
