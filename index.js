@@ -86,9 +86,6 @@ app.post('/api/persons', (request, response) => {
 
   if (!body.name || !body.number) {
     return response.status(400).json({error: 'Name or number missing'});
-  } else if (persons.some(person => person.name === body.name)) {
-    return response.status(400)
-      .json({error: 'Name already exists in database'});
   }
 
   const person = new Person({
@@ -101,6 +98,17 @@ app.post('/api/persons', (request, response) => {
     .save()
     .then(savedPerson => {
       response.json(Person.format(savedPerson));
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
+app.put('/api/persons/:id', (request, response) => {
+  Person
+    .findByIdAndUpdate(request.params.id, {number: request.body.number})
+    .then(updatedPerson => {
+      response.json(Person.format(updatedPerson));
     })
     .catch(error => {
       console.log(error);
