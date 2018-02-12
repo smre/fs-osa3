@@ -54,3 +54,4 @@ fabric.properties
 .idea
 /node_modules/
 /mongoURL.js
+/.env
