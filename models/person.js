@@ -6,7 +6,10 @@ const url = mongoURL.url();
 mongoose.connect(url);
 
 const personSchema = new mongoose.Schema({
-  name: String,
+  name: {
+    type: String,
+    unique: true,
+  },
   number: String,
 });
 

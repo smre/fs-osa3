@@ -105,7 +105,7 @@ app.post('/api/persons', (request, response) => {
       response.json(Person.format(savedPerson));
     })
     .catch(error => {
-      console.log(error);
+      response.status(400).json(error);
     });
 });
 
