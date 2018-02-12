@@ -88,8 +88,11 @@ app.put('/api/persons/:id', (request, response) => {
 });
 
 app.get('/info', (req, res) => {
-  res.send(
-    `<p>Puhelinluettelossa ${persons.length} ihmisen tiedot</p><p>${new Date()}</p>`);
+  Person.find({})
+    .then(people => {
+      res.send(
+        `<p>Puhelinluettelossa ${people.length} ihmisen tiedot</p><p>${new Date()}</p>`);
+    })
 });
 
 const PORT = process.env.PORT || 3001;
