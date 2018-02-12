@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle,global-require */
 const mongoose = require('mongoose');
 
 if (process.env.NODE_ENV !== 'production') {
