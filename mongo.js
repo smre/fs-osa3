@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 const url = process.env.MONGODB_URI;
 
 mongoose.connect(url);
@@ -17,7 +21,7 @@ if (process.argv.length > 2 && process.argv.length <= 4) {
 
   const person = new Person({
     name: name,
-    number: number
+    number: number,
   });
 
   person
